@@ -7,4 +7,4 @@ ENV CONTAINER_NAME=account \
     DB_PASSWD=postgres \
     OPTS_ARGS=''
 
-ENTRYPOINT ["/bin/sh", "-c","java -jar /account.jar ${OPTS_ARGS}"]
+ENTRYPOINT ["java", "-jar", "/account.jar", "${OPTS_ARGS}"]
