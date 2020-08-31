@@ -1,0 +1,24 @@
+app:
+  container-name: ${CONTAINER_NAME:account}
+
+server:
+  port: ${PORT:9001}
+
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: account-api
+  r2dbc:
+    url: ${DB_URL:r2dbc:postgresql://localhost:5432/db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWD:postgres}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
