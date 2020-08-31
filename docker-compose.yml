@@ -38,3 +38,23 @@ services:
       - ADMINER_NAME=ADMINER for PostgreSQL DB
 ## uncommnet to enable auto-login
 #      - ADMINER_AUTOLOGIN=1
+
+  account:
+    image: spring-msa/account-api
+    container_name: account
+    build:
+      context: ./account
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    depends_on:
+      - db
+    environment:
+      - CONTAINER_NAME=account
+      - PORT=9001
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWD=${DB_PASSWORD:-postgres}
+      - DB_URL=${DB_URL:-r2dbc:postgresql://db:5432/db}
+    networks:
+      - default
+
