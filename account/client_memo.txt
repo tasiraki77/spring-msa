@@ -1,0 +1,16 @@
+
+# show account list
+curl -v -H "Content-Type: application/json" http://localhost:9001/account
+
+# show id=1
+curl -v -H "Content-Type: application/json" http://localhost:9001/account/1
+
+# add new account
+curl -v -X POST -H "Content-Type: application/json" -d '{"uname":"hoge", "token":"XXX"}' http://localhost:9001/account
+
+# update id=1
+curl -v -X PUT -H "Content-Type: application/json" -d '{"uname":"foo", "token":"YYYY"}' http://localhost:9001/account/1
+
+# delete id=2
+curl -v -X DELETE -H "Content-Type: application/json" http://localhost:9001/account/2
+
